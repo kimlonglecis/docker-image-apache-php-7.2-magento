@@ -53,7 +53,6 @@ RUN apt update && \
 ##  3. Install 'Composer'
     curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/local/bin
 ##  4. Add User ktle-admin
-RUN useradd -ms /bin/bash -g root -G sudo -p $(openssl passwd -1 Brandcreative1) ktle-admin
 COPY entrypoint.sh  /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
@@ -61,11 +60,11 @@ ENTRYPOINT [ "/entrypoint.sh" ]
 WORKDIR /var/www
 
 
-## Docker image name:                           apache-php-7.x-magento2-environment
-## Docker Hub image name:                       devtutspace/apache-php-7.x-magento2-environment
-## Build command:                               docker build -t apache-php-7.x-magento2-environment ./
-## Build Command No Cache:                      docker build --no-cache -t apache-php-7.x-magento2-environment ./
-## Docker Image Tag command:                    docker tag apache-php-7.x-magento2-environment devtutspace/apache-php-7.x-magento2-environment
-## Docker Image Push command:                   docker push devtutspace/apache-php-7.x-magento2-environment
-## Docker Image Build, Tag, Push:               docker build -t apache-php-7.x-magento2-environment ./ && docker tag apache-php-7.x-magento2-environment devtutspace/apache-php-7.x-magento2-environment && docker push devtutspace/apache-php-7.x-magento2-environment
-## Docker Image Build no cache, Tag, Push:      docker build -t --no-cacheapache-php-7.x-magento2-environment ./ && docker tag apache-php-7.x-magento2-environment devtutspace/apache-php-7.x-magento2-environment && docker push devtutspace/apache-php-7.x-magento2-environment
+## Docker image name:                           apache-php-7-magento2-environment
+## Docker Hub image name:                       devtutspace/apache-php-7-magento2-environment
+## Build command:                               docker build -t apache-php-7-magento2-environment ./
+## Build Command No Cache:                      docker build --no-cache -t apache-php-7-magento2-environment ./
+## Docker Image Tag command:                    docker tag apache-php-7-magento2-environment devtutspace/apache-php-7-magento2-environment
+## Docker Image Push command:                   docker push devtutspace/apache-php-7-magento2-environment
+## Docker Image Build, Tag, Push:               docker build -t apache-php-7-magento2-environment ./ && docker tag apache-php-7-magento2-environment devtutspace/apache-php-7-magento2-environment && docker push devtutspace/apache-php-7-magento2-environment
+## Docker Image Build no cache, Tag, Push:      docker build --no-cache -t apache-php-7-magento2-environment ./ && docker tag apache-php-7-magento2-environment devtutspace/apache-php-7-magento2-environment && docker push devtutspace/apache-php-7-magento2-environment
