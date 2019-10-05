@@ -51,13 +51,19 @@ RUN apt update && \
 #   Install SSHD KEY
     /usr/bin/ssh-keygen -A && \
 ##  3. Install 'Composer'
-    curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/local/bin
+    curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/local/bin && \
+##  Install Magerun/n98-magerun2
+    curl -sS  https://files.magerun.net/n98-magerun2-latest.phar -o /usr/local/bin/magerun && chmod +x /usr/local/bin/magerun && \
+##  Install Modman
+    curl -sS https://raw.github.com/colinmollenhour/modman/master/modman-installer -o /usr/local/bin/modman && chmod +x /usr/local/bin/modman
 ##  4. Add User ktle-admin
+COPY files/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY files/php.ini /usr/local/etc/php/php.ini
 COPY entrypoint.sh  /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
 ##  5. Set WOKR_DIR
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 
 ## Docker image name:                           apache-php-7-magento2-environment
