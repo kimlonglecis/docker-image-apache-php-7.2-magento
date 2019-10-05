@@ -57,6 +57,7 @@ RUN apt update && \
 ##  Install Modman
     curl -sS https://raw.github.com/colinmollenhour/modman/master/modman-installer -o /usr/local/bin/modman && chmod +x /usr/local/bin/modman
 ##  4. Add User ktle-admin
+COPY files/modman /usr/local/bin/modman
 COPY files/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY files/php.ini /usr/local/etc/php/php.ini
 COPY entrypoint.sh  /entrypoint.sh
