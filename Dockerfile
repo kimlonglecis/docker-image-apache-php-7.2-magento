@@ -60,6 +60,8 @@ RUN apt update && \
 COPY files/modman /usr/local/bin/modman
 COPY files/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY files/php.ini /usr/local/etc/php/php.ini
+COPY /etc/timezone /etc/timezone
+COPY /etc/localtime /etc/localtime
 COPY entrypoint.sh  /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
