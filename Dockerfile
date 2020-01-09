@@ -53,10 +53,11 @@ RUN apt update && \
 ##  3. Install 'Composer'
     curl -sS https://getcomposer.org/installer | php -- --filename=composer --install-dir=/usr/local/bin && \
 ##  Install Magerun/n98-magerun2
-    curl -sS  https://files.magerun.net/n98-magerun2-latest.phar -o /usr/local/bin/magerun && chmod +x /usr/local/bin/magerun && \
+    #curl -sS  https://files.magerun.net/n98-magerun2-latest.phar -o /usr/local/bin/magerun && chmod +x /usr/local/bin/magerun && \
 ##  Install Modman
     curl -sS https://raw.github.com/colinmollenhour/modman/master/modman-installer -o /usr/local/bin/modman && chmod +x /usr/local/bin/modman
 ##  4. Add User ktle-admin
+COPY files/n98-magerun2.phar /usr/local/bin/magerun
 COPY files/modman /usr/local/bin/modman
 COPY files/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY files/php.ini /usr/local/etc/php/php.ini
